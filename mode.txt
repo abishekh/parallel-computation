@@ -1,0 +1,22 @@
+public int tallyMode(int[] nums) {
+    // create array of tallies, all initialized to zero
+    int[] tally = new int[101];
+    for(int i = 0; i < tally.length; i++) {
+        tally[i] = 0;
+    }
+
+    // for each array entry, increment corresponding tally box
+    for(int i = 0; i < nums.length; i++) {
+        int value = nums[i];
+        tally[value]++;
+    }
+
+    // now find the index of the largest tally - this is the mode
+    int maxIndex = 0;
+    for(int i = 1; i < tally.length; i++) {
+        if(tally[i] > tally[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+    return maxIndex;
+}
